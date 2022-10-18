@@ -1,0 +1,19 @@
+name: Swift
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run Build
+      run: cd CleanArchitectureWithMVVMSPM/ && swift build -v
+    - name: Run tests
+      run: cd CleanArchitectureWithMVVMSPM/ && swift test -v
